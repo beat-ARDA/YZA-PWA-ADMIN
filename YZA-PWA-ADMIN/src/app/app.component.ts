@@ -15,7 +15,7 @@ export class AppComponent {
     this.url = "";
     this._router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-          this.url = event.url.split("/")[1];
+        this.url = event.url.split("/")[1];
       }
     })
 
