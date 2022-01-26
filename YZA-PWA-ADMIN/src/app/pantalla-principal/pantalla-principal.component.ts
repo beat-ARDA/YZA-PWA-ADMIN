@@ -7,7 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PantallaPrincipalComponent implements OnInit {
 
-  constructor() { }
+  public items: Array<any>;
+
+  constructor() {
+    this.items = [
+      {
+        tituloi: "p4",
+        fechai1: "05/17/2022",
+        fechaf1: "05/18/2022",
+        titulof: "p11",
+        fechai2: "05/19/2022",
+        fechaf2: "05/20/2022"
+      },
+      {
+        tituloi: "p4",
+        fechai1: "05/17/2022",
+        fechaf1: "05/18/2022",
+        titulof: "p11",
+        fechai2: "05/19/2022",
+        fechaf2: "05/20/2022"
+      }
+    ]
+  }
 
   ngOnInit(): void {
   }

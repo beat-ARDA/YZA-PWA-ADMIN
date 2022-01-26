@@ -1,21 +1,55 @@
 .row {
-    margin: 1rem 0 0 0;
-    padding: 0;
-}
-
-.col {
     padding: 0;
     margin: 0;
 }
 
-p {
-    margin: 0;
-    padding: 0;
-    font-size: 1.4rem;
+.boton {
+    margin: 0.30rem 0 0 0;
 }
 
-input {
-    padding: 0.0rem;
-    margin: 0.0rem;
-    height: 3rem;
+.margen-titulo {
+    margin: 3rem 0 0 0;
+}
+
+.tarjeta {
+    margin: 0.9rem 0 0 0;
+}
+
+.titulo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.col-3, .col-6 {
+    padding: 0;
+    margin: 0;
+}
+
+.contorno {
+    border: 0.002rem;
+    border-style: solid;
+}
+
+.col-12 {
+    margin: 0rem;
+    padding: 0rem;
+}
+
+.texto {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.enlace {
+    font-size: 1.1rem;
+}
+
+.agregar-periodos {
+    font-size: 1.1rem;
+}
+
+.asignar-excel {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
