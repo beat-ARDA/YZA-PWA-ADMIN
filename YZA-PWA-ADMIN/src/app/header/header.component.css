@@ -1,0 +1,25 @@
+nav {
+  height: 4.6667rem;
+  background-color: white !important;
+  box-shadow: 0px 2px 1px lightgray !important;
+}
+
+.nombre{
+  display:block;
+    color: #676767;
+    font-family: 'lato-heavy';
+    text-align: center !important;
+    /* font-size: 1.3333rem !important; */
+     /* padding: 2px;  */
+    text-decoration: none;
+}
+
+.atras{
+  height: 1.1667rem;
+  margin-left: 1.1667rem;
+}
+
+.salir{
+  height: 1.3333rem !important;
+  margin-right: 1.1667rem;
+}

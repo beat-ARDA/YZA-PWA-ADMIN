@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { AgregarPeriodosComponent } from './agregar-periodos/agregar-periodos.component';
 import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AgregarPeriodosComponent,
     PantallaPrincipalComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
