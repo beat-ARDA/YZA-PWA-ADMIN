@@ -1,0 +1,108 @@
+.login-padre {
+    padding-top: 4.8333em;
+    padding-left: 0.8333rem;
+    padding-right: 0.8333rem;
+    background-image: url('../../assets/YZAfondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.logo-login {
+    background-image: url('../../assets/YZAlogo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height: 5rem;
+}
+
+.formulario {
+    margin-top: 1.5833rem;
+    padding-left: 1.4167rem;
+    padding-right: 1.4167rem;
+    padding-top: 1.25rem;
+    padding-bottom: 3.6667rem;
+    background-color: white;
+    border-radius: 0.6667rem;
+}
+
+.texto-titulo {
+    font-family: 'lato-heavy';
+    font-size: 1.3167rem;
+    letter-spacing: 0.11rem;
+    color: #546CF1;
+}
+
+.icono-id {
+    background-image: url('../../assets/ic_id.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    height: 1.6667rem;
+    display: inline-block;
+    top: 0rem;
+    left: 92%;
+    position: absolute;
+}
+
+.icono-contraseña {
+    background-image: url('../../assets/ic_candado.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    height: 1.6667rem;
+    display: inline-block;
+    top: 0rem;
+    left: 92%;
+    position: absolute;
+}
+
+.input-icono {
+    position: relative;
+}
+
+.entrada-texto {
+    font-family: 'lato-medium';
+    font-size: 1.3333rem;
+    letter-spacing: 0.0333rem;
+    color: #746a96;
+    width: 100%;
+    margin-top: 3rem;
+    padding-bottom: 1rem;
+    padding-top: 0rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+    border-top: 0.0rem;
+    border-left: 0.0rem;
+    border-right: 0.0rem;
+    outline: none;
+    display: block;
+}
+
+.borde-correcto {
+    border-bottom-color: #2ad95a;
+}
+
+.borde-incorrecto {
+    border-bottom-color: red;
+}
+
+.btn-ingresar {
+    width: 100%;
+    font-family: 'lato-heavy';
+    font-size: 1.1rem;
+    letter-spacing: 0.0733rem;
+    margin-top: 7.0833rem;
+    margin-left: 2.5833rem;
+    margin-right: 2.5833rem;
+    margin-bottom: 0.0rem;
+    padding-top: 1.0833rem;
+    padding-bottom: 1.0833rem;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+.btn-deshabilitado-color {
+    background-color: #a5a5a5;
+}

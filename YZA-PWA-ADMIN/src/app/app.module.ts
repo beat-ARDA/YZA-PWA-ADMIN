@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgregarPeriodosComponent } from './agregar-periodos/agregar-periodos.component';
 import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AgregarPeriodosComponent,
-    PantallaPrincipalComponent
+    PantallaPrincipalComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
