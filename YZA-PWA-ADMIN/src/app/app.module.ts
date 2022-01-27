@@ -7,6 +7,7 @@ import { AgregarPeriodosComponent } from './agregar-periodos/agregar-periodos.co
 import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { ABSService } from './services/abs.service';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,13 @@ import { HeaderComponent } from './header/header.component';
     AgregarPeriodosComponent,
     PantallaPrincipalComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ABSService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
