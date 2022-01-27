@@ -1,5 +1,6 @@
-import { ElementRef, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BlobServiceClient } from "@azure/storage-blob";
+import { APService } from '../ap/ap.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +12,21 @@ export class ABSService {
   public containerName = "yza-container";
   public containerClient = this.blobServiceClient.getContainerClient(this.containerName);
 
-  constructor() {
+  constructor(private ps: APService) {
   }
 
-  uploadFiles = async (inputFile: any) => {
+  uploadFiles = async (inputFile: any, guid: string) => {
     try {
       const blockBlobClient = this.containerClient.getBlockBlobClient(inputFile.files[0].name);
+      blockBlobClient.url
       await blockBlobClient.uploadData(inputFile.files[0]).then(res => {
-        blockBlobClient.setMetadata({ gui: "123" }).then(res => {
-          blockBlobClient.download();
+        blockBlobClient.setMetadata({ guid: guid }).then(res => {
+          for (let p of this.ps.ObtenerPeriodos()) {
+            if (p.identificador == guid) {
+              p.urlDescarga = blockBlobClient.url;
+              p.nombreArchivo = inputFile.files[0].name;
+            }
+          }
         })
       });
       alert("Done");

@@ -33,8 +33,8 @@
         </div>
         <div class="row">
             <div class="contorno col-12 text-center">
-                <a href="https://yza.blob.core.windows.net/yza-container/teleport.jpeg?sv=2020-08-04&ss=bfqt&srt=co&sp=rwdlacupitfx&se=2022-01-27T09:37:26Z&st=2022-01-27T01:37:26Z&spr=https&sig=flKQ6jobsEfyHw5Vi1yLBULBDJrdLLcjoGW2HRt70xg%3D&_=1643260341024"
-                    download class="enlace">Descarga archivo excel</a>
+                <a *ngIf="item.urlDescarga != ''" href="{{item.urlDescarga}}" download class="enlace">Descarga archivo
+                    excel</a>
             </div>
         </div>
         <div class="row boton">
@@ -42,7 +42,7 @@
                 <button for="select-buton" id="select-button" type="button"
                     class="btn btn-success w-100 asignar-excel">Asignar
                     excel</button>
-                <input (change)="UploadFiles($event.target)" type="file" id="input-files">
+                <input (change)="UploadFiles($event.target, item.identificador)" type="file" id="input-files">
             </div>
         </div>
     </div>

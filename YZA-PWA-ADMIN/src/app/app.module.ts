@@ -7,7 +7,9 @@ import { AgregarPeriodosComponent } from './agregar-periodos/agregar-periodos.co
 import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
-import { ABSService } from './services/abs.service';
+import { ABSService } from './services/abs/abs.service';
+import { APService } from './services/ap/ap.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,13 @@ import { ABSService } from './services/abs.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [ABSService],
+  providers: [
+    ABSService,
+    APService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

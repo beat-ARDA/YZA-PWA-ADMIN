@@ -1,6 +1,7 @@
 export class PeriodoItem {
-    public identificador: string;
+    public urlDescarga: string;
     public nombreArchivo: string;
+    public identificador: string;
     public tituloi: string;
     public fechai1: string;
     public fechaf1: string;
@@ -9,8 +10,9 @@ export class PeriodoItem {
     public fechaf2: string;
 
     constructor(
-        private _identificador: string,
+        private _urlDescarga: string,
         private _nombreArchivo: string,
+        private _identificador: string,
         private _titulo1: string,
         private _fechai1: string,
         private _fechaf1: string,
@@ -18,8 +20,9 @@ export class PeriodoItem {
         private _fechai2: string,
         private _fechaf2: string) {
 
-        this.identificador = _identificador;
+        this.urlDescarga = _urlDescarga;
         this.nombreArchivo = _nombreArchivo;
+        this.identificador = _identificador;
         this.tituloi = _titulo1;
         this.fechai1 = _fechai1;
         this.fechaf1 = _fechaf1;

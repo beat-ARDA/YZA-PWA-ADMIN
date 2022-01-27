@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ABSService } from '../services/abs.service';
+import { ABSService } from '../services/abs/abs.service';
+import { APService } from '../services/ap/ap.service';
 import { PeriodoItem } from '../models/periodo.model';
 
 @Component({
@@ -11,18 +12,15 @@ export class PantallaPrincipalComponent implements OnInit {
 
   public items: Array<PeriodoItem>;
 
-  constructor(private abs: ABSService) {
-    this.items = [
-      new PeriodoItem("", "", "p4", "05/17/2022", "05/18/2022", "p11", "05/19/2022", "05/20/2022"),
-      new PeriodoItem("", "", "p4", "05/17/2022", "05/18/2022", "p11", "05/19/2022", "05/20/2022")
-    ]
+  constructor(private abs: ABSService, private ps: APService) {
+    this.items = []
   }
 
   ngOnInit(): void {
-
+    this.items = this.ps.ObtenerPeriodos();
   }
 
-  UploadFiles(event: any) {
-    this.abs.uploadFiles(event);
+  UploadFiles(event: any, guid: string) {
+    this.abs.uploadFiles(event, guid);
   }
 }
