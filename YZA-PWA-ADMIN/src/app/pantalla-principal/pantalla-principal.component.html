@@ -11,30 +11,30 @@
     <div class="row tarjeta" *ngFor="let item of items">
         <div class="row">
             <div class="contorno col-6 text-center">
-                <p class="texto">{{item.tituloi}}</p>
+                <p class="texto">{{item.tituloPrimerPeriodo}}</p>
             </div>
             <div class="contorno col-6 text-center">
-                <p class="texto">{{item.titulof}}</p>
+                <p class="texto">{{item.tituloSegundoPeriodo}}</p>
             </div>
         </div>
         <div class="row">
             <div class="contorno col-3 text-center">
-                <p class="texto">{{item.fechai1}}</p>
+                <p class="texto">{{item.primerPeriodoFechaInicio | date: 'dd-MM-yy'}}</p>
             </div>
             <div class="contorno col-3 text-center">
-                <p class="texto">{{item.fechaf1}}</p>
+                <p class="texto">{{item.primerPeriodoFechaFin | date: 'dd-MM-yy'}}</p>
             </div>
             <div class="contorno col-3 text-center">
-                <p class="texto">{{item.fechai2}}</p>
+                <p class="texto">{{item.segundoPeriodoFechaInicio | date: 'dd-MM-yy'}}</p>
             </div>
             <div class="contorno col-3 text-center">
-                <p class="texto">{{item.fechaf2}}</p>
+                <p class="texto">{{item.segundoPeriodoFechaFin | date: 'dd-MM-yy'}}</p>
             </div>
         </div>
         <div class="row">
             <div class="contorno col-12 text-center">
-                <a *ngIf="item.urlDescarga != ''" href="{{item.urlDescarga}}" download class="enlace">Descarga archivo
-                    excel</a>
+                <!-- <a *ngIf="item.urlDescarga != ''" href="{{item.urlDescarga}}" download class="enlace">Descarga archivo
+                    excel</a> -->
             </div>
         </div>
         <div class="row boton">
@@ -42,7 +42,7 @@
                 <button for="select-buton" id="select-button" type="button"
                     class="btn btn-success w-100 asignar-excel">Asignar
                     excel</button>
-                <input (change)="UploadFiles($event.target, item.identificador)" type="file" id="input-files">
+                <input (change)="UploadFiles($event.target, item.id)" type="file" id="input-files">
             </div>
         </div>
     </div>
