@@ -3,46 +3,46 @@
         <div class="col-6 text-center">
             <p class="titulo">Lista de Periodos</p>
         </div>
-        <div class="col-6">
+        <div class="col-2">
             <button routerLink="/agregar-periodos" type="button"
                 class="btn btn-secondary w-100 agregar-periodos">Agregar periodos</button>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-2">
+            <button  type="button" class="btn btn-secondary w-100 agregar-periodos"
+            (click)="downloadExcelFile()">Formato Excel</button>
         </div>
     </div>
     <div class="row tarjeta" *ngFor="let item of items">
         <div class="row">
-            <div class="contorno col-6 text-center">
+            <div class="contorno col-4 text-center">
                 <p class="texto">{{item.tituloPrimerPeriodo}}</p>
             </div>
-            <div class="contorno col-6 text-center">
+            <div class="contorno col-4 text-center">
                 <p class="texto">{{item.tituloSegundoPeriodo}}</p>
             </div>
+            <div class="contorno col-4 text-center">
+                <p class="texto">Publicar Reporte</p>
+            </div>
         </div>
         <div class="row">
-            <div class="contorno col-3 text-center">
+            <div class="contorno col-2 text-center">
                 <p class="texto">{{item.primerPeriodoFechaInicio | date: 'dd-MM-yy'}}</p>
             </div>
-            <div class="contorno col-3 text-center">
+            <div class="contorno col-2 text-center">
                 <p class="texto">{{item.primerPeriodoFechaFin | date: 'dd-MM-yy'}}</p>
             </div>
-            <div class="contorno col-3 text-center">
+            <div class="contorno col-2 text-center">
                 <p class="texto">{{item.segundoPeriodoFechaInicio | date: 'dd-MM-yy'}}</p>
             </div>
-            <div class="contorno col-3 text-center">
+            <div class="contorno col-2 text-center">
                 <p class="texto">{{item.segundoPeriodoFechaFin | date: 'dd-MM-yy'}}</p>
             </div>
-        </div>
-        <div class="row">
-            <div class="contorno col-12 text-center">
-                <!-- <a *ngIf="item.urlDescarga != ''" href="{{item.urlDescarga}}" download class="enlace">Descarga archivo
-                    excel</a> -->
-            </div>
-        </div>
-        <div class="row boton">
-            <div class="col-12">
-                <button for="select-buton" id="select-button" type="button"
-                    class="btn btn-success w-100 asignar-excel">Asignar
-                    excel</button>
-                <input (change)="UploadFiles($event.target, item.id)" type="file" id="input-files">
+            <div class="contorno col-4 text-center">
+                <label class="custom-file-upload">
+                    <input type="file" (change)="UploadFiles($event.target, item.id)" id="input-files"/>
+                    <i class="fa fa-cloud-upload"></i> Carga Excel
+                </label>
             </div>
         </div>
     </div>
