@@ -10,13 +10,12 @@ import { dateInRange, datesValidation } from '../helpers/customValidations';
 })
 export class AgregarPeriodosComponent implements OnInit {
   periodoForm = new FormGroup({
-    guid: new FormControl('', [Validators.required]),
-    tituloi: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$')]),
-    fechai1: new FormControl('', [Validators.required]),
-    fechaf1: new FormControl('', [Validators.required]),
-    titulof: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$')]),
-    fechai2: new FormControl('', [Validators.required]),
-    fechaf2: new FormControl('', [Validators.required]),
+    tituloPrimerPeriodo: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$')]),
+    primerPeriodoFechaInicio: new FormControl('', [Validators.required]),
+    primerPeriodoFechaFin: new FormControl('', [Validators.required]),
+    tituloSegundoPeriodo: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$')]),
+    segundoPeriodoFechaInicio: new FormControl('', [Validators.required]),
+    segundoPeriodoFechaFin: new FormControl('', [Validators.required]),
   });
   submited: boolean = false
   datesErrors = {
@@ -38,10 +37,10 @@ export class AgregarPeriodosComponent implements OnInit {
 
   private isDatesValid = (): boolean => {
     let invalid: boolean = false
-    const fechai1 = this.periodoForm.get("fechai1")?.value
-    const fechaf1 = this.periodoForm.get("fechaf1")?.value
-    const fechai2 = this.periodoForm.get("fechai2")?.value
-    const fechaf2 = this.periodoForm.get("fechaf2")?.value
+    const fechai1 = this.periodoForm.get("primerPeriodoFechaInicio")?.value
+    const fechaf1 = this.periodoForm.get("primerPeriodoFechaFin")?.value
+    const fechai2 = this.periodoForm.get("segundoPeriodoFechaInicio")?.value
+    const fechaf2 = this.periodoForm.get("segundoPeriodoFechaFin")?.value
 
     this.datesErrors = {
       ...this.datesErrors,
