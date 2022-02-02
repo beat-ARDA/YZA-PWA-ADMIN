@@ -9,30 +9,29 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class AgregarPeriodosComponent implements OnInit {
   periodoForm = new FormGroup({
-    guid: new FormControl(''),
-    tituloi: new FormControl(''),
-    fechai1: new FormControl(''),
-    fechaf1: new FormControl(''),
-    titulof: new FormControl(''),
-    fechai2: new FormControl(''),
-    fechaf2: new FormControl(''),
+    tituloPrimerPeriodo: new FormControl(''),
+    primerPeriodoFechaInicio: new FormControl(''),
+    primerPeriodoFechaFin: new FormControl(''),
+    tituloSegundoPeriodo: new FormControl(''),
+    segundoPeriodoFechaInicio: new FormControl(''),
+    segundoPeriodoFechaFin: new FormControl(''),
   });
-  public guid: string;
 
-  constructor(private aps: APService) {
-    this.guid = "";
-  }
+  constructor(private aps: APService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  GenerarGuid() {
-    this.guid = this.aps.create_UUID();
-  }
 
   Agregar() {
-    this.periodoForm.controls['guid'].setValue(this.guid);
-    this.aps.AgregarPeriodo(this.periodoForm);
+    console.log('form value', this.periodoForm.value);
+
+    let newPerido = { ...this.periodoForm.value };
+
+    console.log('newPeriodo', newPerido);
+
+    this.aps.crearPeriodo(newPerido).subscribe((data) => {
+      console.log('data', data);
+    });
   }
 
 }

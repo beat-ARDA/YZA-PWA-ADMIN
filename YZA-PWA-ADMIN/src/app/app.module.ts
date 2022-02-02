@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { ABSService } from './services/abs/abs.service';
 import { APService } from './services/ap/ap.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     ABSService,

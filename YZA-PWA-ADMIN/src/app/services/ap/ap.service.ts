@@ -1,44 +1,30 @@
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { PeriodoItem } from 'src/app/models/periodo.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ICreatePeriodCommand, IPeriodListVm, IUpdatePeriodCommand } from 'src/app/models/periodo.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class APService {
 
-  public periodoData: Array<PeriodoItem>
+  private url: string = environment.API_URL + environment.ENDPOINT_PERIODO;
 
-  constructor() {
-    this.periodoData = [];
+  constructor(private httpClient: HttpClient) { }
+
+  obtenerPeriodos(): Observable<IPeriodListVm[]> {
+    return this.httpClient.get<IPeriodListVm[]>(this.url);
   }
 
-  create_UUID(): string {
-    let dt = new Date().getTime();
-    let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = (dt + Math.random() * 16) % 16 | 0;
-      dt = Math.floor(dt / 16);
-      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
-    return uuid;
+  crearPeriodo(newPeriod: ICreatePeriodCommand) {
+    const headers = {'content-type': 'application/json'};
+    return this.httpClient.post(this.url, newPeriod , {  headers: headers })
   }
 
-  AgregarPeriodo(formulario: FormGroup) {
-    this.periodoData.push(
-      new PeriodoItem(
-        "",
-        "",
-        formulario.value.guid,
-        formulario.value.tituloi,
-        formulario.value.fechai1,
-        formulario.value.fechaf1,
-        formulario.value.titulof,
-        formulario.value.fechai2,
-        formulario.value.fechaf2
-      ));
+  updatePeriodo(periodModified: IUpdatePeriodCommand) {
+    const headers = {'content-type': 'application/json'};
+    return this.httpClient.put(this.url, periodModified, {headers: headers});
   }
 
-  ObtenerPeriodos() {
-    return this.periodoData;
-  }
 }

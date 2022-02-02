@@ -4,6 +4,10 @@
 
 export const environment = {
   production: false,
+  STORAGE_URL: 'http://127.0.0.1:10000/devstoreaccount1/reportecanibalizacion',
+  API_URL: 'https://localhost:44366', 
+  ENDPOINT_PERIODO: '/api/Periodo',
+  ENDPOINT_EXCEL_FORMAT: '/api/File/ReporteCanibalizacion'
 };
 
 /*
