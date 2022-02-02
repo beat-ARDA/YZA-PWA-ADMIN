@@ -16,7 +16,10 @@ export class ABSService {
   }
   uploadFiles = async (inputFile: any, guid: string) => {
     try {
-      const blockBlobClient = this.containerClient.getBlockBlobClient(inputFile.files[0].name);
+      const [, fileExt] = inputFile.files[0].name.split(".")
+      const now = Date.now()
+      const fileReNamed = `reporte_${now}.${fileExt}`
+      const blockBlobClient = this.containerClient.getBlockBlobClient(fileReNamed);
       blockBlobClient.url
       await blockBlobClient.uploadData(inputFile.files[0]).then(res => {
         blockBlobClient.setMetadata({ guid: guid }).then(res => {
