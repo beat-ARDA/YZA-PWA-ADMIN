@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BlobServiceClient } from "@azure/storage-blob";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ABSService {
 
-  public blobSasUrl = "https://yza.blob.core.windows.net/?sv=2020-08-04&ss=bfqt&srt=co&sp=rwdlacupitfx&se=2022-01-29T04:56:28Z&st=2022-01-28T20:56:28Z&spr=https&sig=E0F4bcazA%2BfZfwxYiPpK93nlFGDR3kEGOYVJsh1%2FcR4%3D";
+  public blobSasUrl = environment.BLOB_SAS_URL
   public blobServiceClient = new BlobServiceClient(this.blobSasUrl);
-  public containerName = "yza-container";
+  public containerName = environment.BLOB_CONTAINER_NAME;
   public containerClient = this.blobServiceClient.getContainerClient(this.containerName);
 
   constructor() {
