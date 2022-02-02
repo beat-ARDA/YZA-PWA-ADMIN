@@ -30,14 +30,7 @@ export class AgregarPeriodosComponent implements OnInit {
     // this.guid = "";
   }
 
-  ngOnInit(): void {
-  }
-
-  GenerarGuid() {
-    // this.guid = this.aps.create_UUID();
-    const guid = this.aps.create_UUID()
-    this.periodoForm.controls['guid'].setValue(guid);
-  }
+  ngOnInit(): void { }
 
   get formErrors() {
     return this.periodoForm.controls;
@@ -64,10 +57,17 @@ export class AgregarPeriodosComponent implements OnInit {
   }
 
   Agregar() {
-    // this.periodoForm.controls['guid'].setValue(this.guid);
     this.submited = true
     if (!this.isDatesValid() && this.periodoForm.valid) {
-      this.aps.AgregarPeriodo(this.periodoForm);
+      console.log('form value', this.periodoForm.value);
+
+      let newPerido = { ...this.periodoForm.value };
+
+      console.log('newPeriodo', newPerido);
+
+      this.aps.crearPeriodo(newPerido).subscribe((data) => {
+        console.log('data', data);
+      });
     }
   }
 

@@ -1,18 +1,6 @@
 <div class="container-fluid">
     <form [formGroup]="periodoForm" (ngSubmit)="Agregar()">
         <div class="row">
-            <div class="col-6">
-                <input readonly type="text" formControlName="guid" class="text-center">
-                <div *ngIf="formErrors['guid'].invalid && (submited || formErrors['guid'].dirty || formErrors['guid'].touched)"
-                    class="error-label">
-                    GUID es requerido
-                </div>
-            </div>
-            <div class="col">
-                <button type="button" (click)="GenerarGuid()" class="btn btn-primary">Generar GUID</button>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-12 justify-content-center text-center">
                 <p>Tiutlo primer periodo</p>
                 <input formControlName="tituloi" placeholder="Titulo primer periodo" type="text" class="control-input"
