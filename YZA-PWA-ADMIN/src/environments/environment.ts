@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  clienteId: '453a1d5e-4577-443a-9357-5f81292ebaff',
-  dirId: 'https://login.microsoftonline.com/19513d13-647c-4aba-be24-9318ebf435b1',
+  clienteId: '106a9363-5976-4a32-8967-50cfa2f769db',
+  dirId: 'https://login.microsoftonline.com/66f9ab85-de1a-40d4-b7bb-21565ad57cce',
   redUrl: 'http://localhost:4200'
 };
