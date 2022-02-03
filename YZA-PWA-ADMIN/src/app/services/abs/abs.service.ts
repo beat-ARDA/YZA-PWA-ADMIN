@@ -22,7 +22,7 @@ export class ABSService {
       const blockBlobClient = this.containerClient.getBlockBlobClient(fileReNamed);
       blockBlobClient.url
       await blockBlobClient.uploadData(inputFile.files[0]).then(res => {
-        blockBlobClient.setMetadata({ guid: guid }).then(res => {
+        blockBlobClient.setMetadata({ PeriodoId: guid }).then(res => {
           // for (let p of this.ps.ObtenerPeriodos()) {
           //   if (p.identificador == guid) {
           //     p.urlDescarga = blockBlobClient.url;
