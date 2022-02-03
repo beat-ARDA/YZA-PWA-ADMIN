@@ -2,6 +2,6 @@
   <div class="container-fluid" style="padding-top: 1.1667rem; padding-bottom: 1.1667rem;">
     <img class="atras img-fluid" onclick="history.back()" src="../../assets/ic_retroceder.png">
     <h4 class="nombre">{{titulo.toUpperCase()}}</h4>
-    <img routerLink="/" class="salir" src="../../assets/ic_salir.png">
+    <img (click)="ad.logout()" routerLink="/" class="salir" src="../../assets/ic_salir.png">
   </div>
 </nav>

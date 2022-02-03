@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AdService } from '../services/ad.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   public titulo: string;
 
-  constructor() {
+  constructor(public ad: AdService) {
     this.titulo = "YZA ADMIN";
   }
 

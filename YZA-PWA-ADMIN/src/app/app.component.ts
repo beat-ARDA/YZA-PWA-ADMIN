@@ -10,7 +10,8 @@ export class AppComponent {
   public title: string;
   public url: string;
 
-  constructor(private _router: Router) {
+  constructor(
+    private _router: Router) {
     this.title = "YZA-PWA-ADMIN"
     this.url = "";
     this._router.events.subscribe((event: Event) => {
@@ -18,6 +19,6 @@ export class AppComponent {
         this.url = event.url.split("/")[1];
       }
     })
-
   }
+
 }

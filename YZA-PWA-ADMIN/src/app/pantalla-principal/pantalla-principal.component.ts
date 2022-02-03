@@ -9,10 +9,12 @@ import { PeriodoItem } from '../models/periodo.model';
   styleUrls: ['./pantalla-principal.component.css']
 })
 export class PantallaPrincipalComponent implements OnInit {
-
+  loginDisplay = false;
   public items: Array<PeriodoItem>;
 
-  constructor(private abs: ABSService, private ps: APService) {
+  constructor(
+    private abs: ABSService,
+    private ps: APService) {
     this.items = []
   }
 
