@@ -2,16 +2,16 @@
     <form [formGroup]="periodoForm" (ngSubmit)="Agregar()">
         <div class="row">
             <div class="col-12 justify-content-center text-center">
-                <p>Tiutlo primer periodo</p>
+                <p>Título primer periodo</p>
                 <input formControlName="tituloPrimerPeriodo" placeholder="Titulo primer periodo" type="text" class="control-input"
                     maxlength="50" />
                 <div *ngIf="formErrors['tituloPrimerPeriodo'].invalid && formErrors['tituloPrimerPeriodo'].errors!['required'] && (submited || formErrors['tituloPrimerPeriodo'].dirty || formErrors['tituloSegundoPeriodo'].touched)"
                     class="error-label">
-                    Tiutlo primer periodo es requerido
+                    Título primer periodo es requerido
                 </div>
                 <div *ngIf="formErrors['tituloPrimerPeriodo'].invalid && formErrors['tituloPrimerPeriodo'].errors!['pattern'] && (submited || formErrors['tituloPrimerPeriodo'].dirty || formErrors['tituloSegundoPeriodo'].touched)"
                     class="error-label">
-                    Tiutlo primer periodo debe ser alfanumérico
+                    Título primer periodo debe ser alfanumérico
                 </div>
             </div>
 
@@ -37,16 +37,16 @@
             </diV>
 
             <div class="col-12 justify-content-center text-center">
-                <p>Tiutlo segundo periodo</p>
+                <p>Título segundo periodo</p>
                 <input formControlName="tituloSegundoPeriodo" placeholder="Titulo segundo periodo" type="text" class="control-input"
                     maxlength="50" />
                 <div *ngIf="formErrors['tituloSegundoPeriodo'].invalid && formErrors['tituloSegundoPeriodo'].errors!['required'] && (submited || formErrors['tituloSegundoPeriodo'].dirty || formErrors['tituloSegundoPeriodo'].touched)"
                     class="error-label">
-                    Tiutlo segundo periodo es requerido
+                    Título segundo periodo es requerido
                 </div>
                 <div *ngIf="formErrors['tituloSegundoPeriodo'].invalid && formErrors['tituloSegundoPeriodo'].errors!['pattern'] && (submited || formErrors['tituloSegundoPeriodo'].dirty || formErrors['tituloSegundoPeriodo'].touched)"
                     class="error-label">
-                    Tiutlo segundo periodo debe ser alfanumérico
+                    Título segundo periodo debe ser alfanumérico
                 </div>
             </div>
 

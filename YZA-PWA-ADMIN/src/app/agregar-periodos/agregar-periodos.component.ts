@@ -64,9 +64,15 @@ export class AgregarPeriodosComponent implements OnInit {
 
       console.log('newPeriodo', newPerido);
 
-      this.aps.crearPeriodo(newPerido).subscribe((data) => {
-        console.log('data', data);
-      });
+      try {
+        this.aps.crearPeriodo(newPerido).subscribe((data) => {
+          console.log('data', data);
+          alert("Datos guardados con exito.")
+          history.back()
+        });
+      } catch (error) {
+        alert("Se produjo un error, intente más tarde.")
+      }
     }
   }
 

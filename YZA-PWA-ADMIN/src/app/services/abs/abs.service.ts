@@ -21,17 +21,21 @@ export class ABSService {
       const fileReNamed = `reporte_${now}.${fileExt}`
       const blockBlobClient = this.containerClient.getBlockBlobClient(fileReNamed);
       blockBlobClient.url
-      await blockBlobClient.uploadData(inputFile.files[0]).then(res => {
-        blockBlobClient.setMetadata({ PeriodoId: guid }).then(res => {
-          // for (let p of this.ps.ObtenerPeriodos()) {
-          //   if (p.identificador == guid) {
-          //     p.urlDescarga = blockBlobClient.url;
-          //     p.nombreArchivo = inputFile.files[0].name;
-          //   }
-          // }
-        })
-      });
-      alert("Done");
+      try {
+        await blockBlobClient.uploadData(inputFile.files[0]).then(res => {
+          blockBlobClient.setMetadata({ PeriodoId: guid }).then(res => {
+            // for (let p of this.ps.ObtenerPeriodos()) {
+            //   if (p.identificador == guid) {
+            //     p.urlDescarga = blockBlobClient.url;
+            //     p.nombreArchivo = inputFile.files[0].name;
+            //   }
+            // }
+          })
+        });
+        alert("Archivo cargado con exito")
+      } catch (error) {
+        alert("Se produjo un error, intente más tarde.")
+      }
     }
     catch (error: any) {
       alert(error.message)
