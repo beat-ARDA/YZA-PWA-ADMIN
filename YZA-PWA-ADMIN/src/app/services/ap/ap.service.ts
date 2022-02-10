@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ICreatePeriodCommand, IPeriodListVm, IUpdatePeriodCommand } from 'src/app/models/periodo.model';
 import { environment } from 'src/environments/environment';
@@ -14,17 +14,32 @@ export class APService {
   constructor(private httpClient: HttpClient) { }
 
   obtenerPeriodos(): Observable<IPeriodListVm[]> {
-    return this.httpClient.get<IPeriodListVm[]>(this.url);
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Ocp-Apim-Subscription-Key': environment.Ocp_Apim_Subscription_Key,
+      'Ocp-Apim-Trace': 'true'
+    })
+    return this.httpClient.get<IPeriodListVm[]>(this.url, { headers });
   }
 
   crearPeriodo(newPeriod: ICreatePeriodCommand) {
-    const headers = {'content-type': 'application/json'};
-    return this.httpClient.post(this.url, newPeriod , {  headers: headers })
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Ocp-Apim-Subscription-Key': environment.Ocp_Apim_Subscription_Key,
+      'Ocp-Apim-Trace': 'true',
+      'content-type': 'application/json'
+    })
+    return this.httpClient.post(this.url, newPeriod, { headers })
   }
 
   updatePeriodo(periodModified: IUpdatePeriodCommand) {
-    const headers = {'content-type': 'application/json'};
-    return this.httpClient.put(this.url, periodModified, {headers: headers});
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Ocp-Apim-Subscription-Key': environment.Ocp_Apim_Subscription_Key,
+      'Ocp-Apim-Trace': 'true',
+      'content-type': 'application/json'
+    })
+    return this.httpClient.put(this.url, periodModified, { headers });
   }
 
 }
