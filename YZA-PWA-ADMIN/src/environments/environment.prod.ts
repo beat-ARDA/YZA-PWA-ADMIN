@@ -7,9 +7,9 @@ export const environment = {
   BLOB_SAS_URL: "https://stcanibalizacionpoc02.blob.core.windows.net/?sv=2020-08-04&ss=bfqt&srt=co&sp=rwdlacupitfx&se=2050-02-12T01:28:08Z&st=2022-02-11T17:28:08Z&spr=https&sig=UaRQy9enzTqmVhMxUm1LsMXUuvk75rGdXprvTRKcNg4%3D",
   BLOB_CONTAINER_NAME: "reportecanibalizacion",
   //Active directory
-  clienteId: 'e9c5dc25-6b62-4535-b05f-cbbb33e9b9c4',
+  clienteId: '7796a597-c9c3-4810-8ec3-163cad91872f',
   dirId: 'https://login.microsoftonline.com/66f9ab85-de1a-40d4-b7bb-21565ad57cce',
-  redUrl: 'https://yza-admin.azurewebsites.net',
+  redUrl: 'https://ase-canibalizacion-admin-east-01.azurewebsites.net',
   // Headers
   Ocp_Apim_Subscription_Key: "52a9cfd90836490ea6cf7bc25f3bf744"
 };
