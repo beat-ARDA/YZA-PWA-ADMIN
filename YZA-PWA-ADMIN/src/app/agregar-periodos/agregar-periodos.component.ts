@@ -52,7 +52,8 @@ export class AgregarPeriodosComponent implements OnInit {
     }
     return invalid
   }
-
+  // Submit function
+  // Validates if all fields are corrects
   Agregar() {
     this.submited = true
     if (!this.isDatesValid() && this.periodoForm.valid) {
