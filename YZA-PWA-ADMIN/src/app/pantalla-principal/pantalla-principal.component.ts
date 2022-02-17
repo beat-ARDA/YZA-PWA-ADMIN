@@ -19,7 +19,7 @@ export class PantallaPrincipalComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerPeriodos();
   }
-
+  // GET all periods
   obtenerPeriodos() {
     this.ps.obtenerPeriodos().subscribe((periodos) => {
       this.items = periodos;
@@ -29,9 +29,9 @@ export class PantallaPrincipalComponent implements OnInit {
   UploadFiles(event: any, guid: string) {
     this.abs.uploadFiles(event, guid);
   }
-
+  // Get blob file from the service downloads the document
   downloadExcelFile() {
-    const res = this.downloadFileService.getXlsFormat().subscribe((response: any) => {
+    this.downloadFileService.getXlsFormat().subscribe((response: any) => {
       let dataType = response.type;
       let binaryData = [];
       binaryData.push(response);
@@ -41,6 +41,5 @@ export class PantallaPrincipalComponent implements OnInit {
       document.body.appendChild(downloadLink);
       downloadLink.click();
     });
-    // window.open(environment.API_URL + environment.ENDPOINT_EXCEL_FORMAT, '_blank');
   }
 }

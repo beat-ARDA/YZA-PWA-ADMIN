@@ -17,6 +17,7 @@ export class DownloadFileService {
       'Ocp-Apim-Subscription-Key': environment.Ocp_Apim_Subscription_Key,
       'Ocp-Apim-Trace': 'true'
     })
+    // the service returns a blob
     return this.httpClient.get(this.url, { headers, responseType: 'blob' as 'json' });
   }
 }

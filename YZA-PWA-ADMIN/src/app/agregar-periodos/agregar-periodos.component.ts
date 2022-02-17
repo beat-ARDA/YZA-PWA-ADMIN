@@ -23,10 +23,8 @@ export class AgregarPeriodosComponent implements OnInit {
     seconsPeriodDates: false,
     datesInRage: false,
   }
-  // public guid: string;
 
   constructor(private aps: APService) {
-    // this.guid = "";
   }
 
   ngOnInit(): void { }
@@ -34,21 +32,21 @@ export class AgregarPeriodosComponent implements OnInit {
   get formErrors() {
     return this.periodoForm.controls;
   }
-
+  // Dates validations
+  // This function validates if every date is in correct range
   private isDatesValid = (): boolean => {
     let invalid: boolean = false
     const fechai1 = this.periodoForm.get("primerPeriodoFechaInicio")?.value
     const fechaf1 = this.periodoForm.get("primerPeriodoFechaFin")?.value
     const fechai2 = this.periodoForm.get("segundoPeriodoFechaInicio")?.value
     const fechaf2 = this.periodoForm.get("segundoPeriodoFechaFin")?.value
-
+    // This state works for showing errors on view
     this.datesErrors = {
       ...this.datesErrors,
       firstPeriodDates: !datesValidation(fechai1, fechaf1),
       seconsPeriodDates: !datesValidation(fechai2, fechaf2),
       datesInRage: dateInRange(fechai1, fechaf1, fechai2) || dateInRange(fechai1, fechaf1, fechaf2)
     }
-    console.log(this.datesErrors)
     if (this.datesErrors.firstPeriodDates || this.datesErrors.seconsPeriodDates || this.datesErrors.datesInRage) {
       invalid = true
     }
@@ -58,15 +56,9 @@ export class AgregarPeriodosComponent implements OnInit {
   Agregar() {
     this.submited = true
     if (!this.isDatesValid() && this.periodoForm.valid) {
-      console.log('form value', this.periodoForm.value);
-
       let newPerido = { ...this.periodoForm.value };
-
-      console.log('newPeriodo', newPerido);
-
       try {
         this.aps.crearPeriodo(newPerido).subscribe((data) => {
-          console.log('data', data);
           alert("Datos guardados con exito.")
           history.back()
         });
