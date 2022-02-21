@@ -42,4 +42,15 @@ export class APService {
     return this.httpClient.put(this.url, periodModified, { headers });
   }
 
+  eliminarPeriodo(periodoId: string) {
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Ocp-Apim-Subscription-Key': environment.Ocp_Apim_Subscription_Key,
+      'Ocp-Apim-Trace': 'true',
+      'content-type': 'application/json'
+    })
+
+    return this.httpClient.delete(`${this.url}/${periodoId}`, {headers});
+  }
+
 }

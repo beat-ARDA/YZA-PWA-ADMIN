@@ -22,7 +22,7 @@
                 <p class="texto">{{item.tituloSegundoPeriodo}}</p>
             </div>
             <div class="contorno col-4 text-center">
-                <p class="texto">Publicar Reporte</p>
+                <p class="texto"> Opciones</p>
             </div>
         </div>
         <div class="row">
@@ -39,6 +39,10 @@
                 <p class="texto">{{item.segundoPeriodoFechaFin | date: 'dd-MM-yy'}}</p>
             </div>
             <div class="contorno col-4 text-center">
+                <button type="button" class="btn btn-danger" (click)="openModaleliminarPeriodo(modalData, item.id)">Eliminar</button>
+
+                <button type="button" class="btn btn-link" (click)="log(modalDatalog, item.id)">Ver log</button>
+
                 <label class="custom-file-upload">
                     <input type="file" (change)="UploadFiles($event.target, item.id)" id="input-files"/>
                     <i class="fa fa-cloud-upload"></i> Cargar Excel
@@ -47,3 +51,72 @@
         </div>
     </div>
 </div>
+
+<!-- ELIMINAR PERIODO -->
+<ng-template #modalData  let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="modal-basic-title">¿Esta seguro de eliminar el periodo seleccionado?</h5>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="modal.close('Cancelar')">Cancelar</button>
+      <button type="button" class="btn btn-danger" (click)="modal.close('Eliminar')">Sí</button>
+    </div>
+  </ng-template>
+
+<!-- LOG CARGA -->
+  <ng-template #modalDatalog let-modal>
+    <div class="modal-header centrar-texto">
+      <h5 class="modal-title " id="modal-basic-title">Log Carga de Información</h5>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+          <table class="table table-bordered centrar-texto">
+            <thead>
+              <tr>
+                <th scope="col">Nombre Archivo</th>
+                <th scope="col">Fecha</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let carga of cargaArchivo">
+                <td>{{carga.nombreArchivo}}</td>
+                <td>{{carga.creado | date:'medium'}}</td>
+                <td><button class="btn btn-success" (click)="verDetalleCarga(carga.id)">Log</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="centrar-texto" *ngIf="cargaId !== ''">
+            <h6>Errores encontrados</h6>
+            <table class="table table-bordered centrar-texto">
+                <thead>
+                <tr>
+                    <th scope="col">Mensaje</th>
+                    <th scope="col">Fecha</th>
+                </tr>
+                </thead>
+                <tbody *ngIf="detalleCargaArchivo.length > 0">
+                <tr *ngFor="let detalle of detalleCargaArchivo">
+                    <td>{{detalle.mensaje}}</td>
+                    <td>{{detalle.creado | date:'medium'}}</td>
+                </tr>
+                </tbody>
+                <tbody *ngIf="detalleCargaArchivo.length == 0">
+                    <tr >
+                    <td colspan="2">No existen registros incorrectos</td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+    </div>    
+  </ng-template>
+
+
+  

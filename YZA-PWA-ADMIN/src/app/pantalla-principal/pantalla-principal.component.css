@@ -65,3 +65,7 @@ input[type="file"] {
     cursor: pointer;
     color: white;
 }
+
+.centrar-texto {
+    text-align: center;
+}
